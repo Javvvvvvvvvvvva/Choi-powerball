@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+var powerball = document.createElement('div');
+powerball.innerHTML = '<h1>Powerball</h1>';
+var powerballNumbers = document.createElement('div');
+powerballNumbers.innerHTML = '<h2>Numbers</h2>';
+var powerballPowerball = document.createElement('div');
+powerballPowerball.innerHTML = '<h2>Powerball</h2>';
+powerball.appendChild(powerballNumbers);
+powerball.appendChild(powerballPowerball);
+document.body.appendChild(powerball);
+
+function generatePowerballNumbers() {
+  var numbers = [];
+  for (var i = 0; i < 5; i++) {
+    numbers.push(Math.floor(Math.random() * 69) + 1);
+  }
+  return numbers;
+}
+
+function generatePowerball() {
+  return Math.floor(Math.random() * 26) + 1;
+}
+
+function updatePowerballNumbers() {
+  var numbers = generatePowerballNumbers();
+  powerballNumbers.innerHTML = '<h2>Numbers</h2>';
+  for (var i = 0; i < numbers.length; i++) {
+    var number = document.createElement('div');
+    number.innerHTML = numbers[i];
+    powerballNumbers.appendChild(number);
+  }
+}
+
+function updatePowerball() {
+  var powerball = generatePowerball();
+  powerballPowerball.innerHTML = '<h2>Powerball</h2>';
+  var powerballNumber = document.createElement('div');
+  powerballNumber.innerHTML = powerball;
+  powerballPowerball.appendChild(powerballNumber);
+}
+
+updatePowerballNumbers();
+updatePowerball();
+
+var powerball = document.getElementsByTagName('div')[0];
+powerball.style.textAlign = 'center';
+
+var powerball = document.getElementsByTagName('div')[0];
+var button = document.createElement('button');
+button.innerHTML = 'Refresh';
+button.onclick = function() {
+  updatePowerballNumbers();
+  updatePowerball();
+};
+powerball.appendChild(button);
+
+var powerball = document.getElementsByTagName('div')[0];
+powerball.style.backgroundColor = '#000000';
+powerball.style.color = '#ffffff';
+powerball.style.fontFamily = 'Arial';
+powerball.style.fontSize = '50px';
+powerball.style.padding = '20px';
+});
+var button = document.getElementsByTagName('button')[0];
+button.style.fontSize = '30px';
+        </script>
+    </head>
+    <body style="margin: 0;">
+        
+    </body>
+</html>
